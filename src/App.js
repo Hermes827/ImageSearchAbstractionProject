@@ -9,6 +9,14 @@ class App extends React.Component {
     super()
   }
 
+  // componentDidMount(){
+  //   fetch("http://127.0.0.1:8081/")
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data)
+  //     })
+  //   }
+
   render(){
   return (
     <div className="App">
