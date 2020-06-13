@@ -7,15 +7,21 @@ class App extends React.Component {
 
   constructor(){
     super()
+
+    this.state = {
+      queryRecords: ""
+    }
   }
 
-  // componentDidMount(){
-  //   fetch("http://127.0.0.1:8081/")
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
-  //     })
-  //   }
+  componentDidMount(){
+    fetch("http://localhost:3000/records")
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        queryRecords: data[0]
+      })
+      })
+    }
 
   render(){
   return (
