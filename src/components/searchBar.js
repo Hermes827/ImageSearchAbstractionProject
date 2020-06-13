@@ -15,6 +15,8 @@ class SearchBar extends React.Component {
      search: ""
     }
 
+    let time = this.state.query.time
+
     this.captureText = this.captureText.bind(this)
     this.executeSearch = this.executeSearch.bind(this)
   }
@@ -45,17 +47,24 @@ class SearchBar extends React.Component {
   }
 
 postQueryData(){
+  let time = this.state.query.time
+  let timeString = "'" + time + "'"
+
   const requestOptions = {
        method: 'POST',
        headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({term: this.state.query.term, date: this.state.query.date, time: this.state.query.time})
+       body: JSON.stringify({term: this.state.query.term, date: this.state.query.date, time: timeString})
    };
    fetch('http://localhost:3000/records', requestOptions)
        .then(response => response.json())
        .then(data => console.log(data));
      }
 
+  //need to fix postQueryData, its firing off before the data gets stored in state, it started messing up
+  //after I changed the time to timeString
+
   render(){
+
   return (
     <div>
     <form onSubmit={this.executeSearch}>
