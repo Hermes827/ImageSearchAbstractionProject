@@ -1,0 +1,5 @@
+class AddDateToRecords < ActiveRecord::Migration[6.0]
+  def change
+    add_column :records, :date, :string
+  end
+end

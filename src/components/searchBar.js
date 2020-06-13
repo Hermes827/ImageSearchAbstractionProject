@@ -41,7 +41,19 @@ class SearchBar extends React.Component {
   }).catch(function(){
         console.log("error");
     });
+    this.postQueryData()
   }
+
+postQueryData(){
+  const requestOptions = {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({term: this.state.query.term, date: this.state.query.date, time: this.state.query.time})
+   };
+   fetch('http://localhost:3000/records', requestOptions)
+       .then(response => response.json())
+       .then(data => console.log(data));
+     }
 
   render(){
   return (
@@ -49,7 +61,6 @@ class SearchBar extends React.Component {
     <form onSubmit={this.executeSearch}>
     <input type='text' name='text' value={this.state.text} onChange={this.captureText}/>
     <button type="button" onClick={null}>cancel</button>
-    {console.log(this.state)}
     </form>
     </div>
   );

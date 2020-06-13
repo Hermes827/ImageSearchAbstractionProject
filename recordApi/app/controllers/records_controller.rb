@@ -10,8 +10,9 @@ class RecordsController < ApplicationController
      render json: record, status: :ok
    end
  ​
+   private
    def record_params
-     params.require(:record).permit(:text)
+     params.require(:record).permit(:term, :date, :time)
    end
 
 end
