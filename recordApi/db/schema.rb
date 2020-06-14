@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_175408) do
+ActiveRecord::Schema.define(version: 2020_06_14_121828) do
 
   create_table "records", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "term"
     t.string "date"
-    t.string "time"
+    t.float "time"
   end
 
 end

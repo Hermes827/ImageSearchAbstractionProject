@@ -10,13 +10,10 @@ class SearchBar extends React.Component {
       query: {
               term: "",
               date: "",
-              time: ""
+              time: 0
             },
      search: ""
     }
-
-    let time = this.state.query.time
-
     this.captureText = this.captureText.bind(this)
     this.executeSearch = this.executeSearch.bind(this)
   }
@@ -43,25 +40,25 @@ class SearchBar extends React.Component {
   }).catch(function(){
         console.log("error");
     });
-    this.postQueryData()
   }
 
-postQueryData(){
-  let time = this.state.query.time
-  let timeString = "'" + time + "'"
+  componentDidUpdate(){
+    if(this.state.query.time !== 0){
+      this.postQueryData()
+    }
+  }
+
+  postQueryData(){
 
   const requestOptions = {
        method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({term: this.state.query.term, date: this.state.query.date, time: timeString})
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({record: {term: this.state.query.term, date: this.state.query.date, time: this.state.query.time}})
    };
    fetch('http://localhost:3000/records', requestOptions)
        .then(response => response.json())
-       .then(data => console.log(data));
+       .then(data => console.log("success"));
      }
-
-  //need to fix postQueryData, its firing off before the data gets stored in state, it started messing up
-  //after I changed the time to timeString
 
   render(){
 
@@ -70,6 +67,7 @@ postQueryData(){
     <form onSubmit={this.executeSearch}>
     <input type='text' name='text' value={this.state.text} onChange={this.captureText}/>
     <button type="button" onClick={null}>cancel</button>
+    {console.log(this.state.query.time)}
     </form>
     </div>
   );
