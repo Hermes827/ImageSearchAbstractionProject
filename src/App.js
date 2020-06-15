@@ -19,7 +19,7 @@ class App extends React.Component {
     .then(res => res.json())
     .then(data => {
       this.setState({
-        queryRecords: data[0]
+        queryRecords: data.slice(-10)
       })
       })
     }
@@ -29,7 +29,8 @@ class App extends React.Component {
     <div className="App">
       <div className="mainDiv">
         <SearchBar/>
-        <QueryHistory/>
+        <QueryHistory records={this.state.queryRecords}/>
+        {console.log(this.state.queryRecords)}
       </div>
     </div>
   );

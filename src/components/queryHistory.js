@@ -1,4 +1,5 @@
 import React from 'react';
+import Query from '../components/query.js'
 
 class QueryHistory extends React.Component {
 
@@ -33,7 +34,7 @@ class QueryHistory extends React.Component {
   render(){
   return (
     <div className="queryHistory">
-    <h1>See Past Queries</h1>
+    <h1>See Past 10 Queries</h1>
     {this.renderQueries()}
     </div>
   );
