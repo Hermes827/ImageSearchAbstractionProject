@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SearchBar from './components/searchBar.js'
+import QueryHistory from './components/queryHistory.js'
 
 class App extends React.Component {
 
@@ -27,8 +28,8 @@ class App extends React.Component {
   return (
     <div className="App">
       <div className="mainDiv">
-        <h1>Get image search API data</h1>
         <SearchBar/>
+        <QueryHistory/>
       </div>
     </div>
   );

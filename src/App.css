@@ -48,3 +48,17 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.queryHistoryBox {
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  width: 75%;
+  margin: 0 auto 0 auto;
+  overflow: scroll;
+  height: 12em;
+}
+
+.queryHistory {
+  margin-top: 15em;
+}

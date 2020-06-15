@@ -66,6 +66,7 @@ class SearchBar extends React.Component {
 
   return (
     <div>
+    <h1>Get image search API data</h1>
     <form onSubmit={this.executeSearch}>
     <input type='text' name='text' value={this.state.text} onChange={this.captureText}/>
     <button type="button" onClick={null}>cancel</button>
