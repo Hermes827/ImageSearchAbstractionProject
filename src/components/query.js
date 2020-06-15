@@ -9,7 +9,6 @@ class Query extends React.Component {
   render(){
   return (
     <div className="query">
-      {console.log(this.props.info)}
       <h5>QUERY ID: {this.props.info.id} => SEARCH TERM: {"\"" + this.props.info.term + "\""} DATE: {this.props.info.date} EXECUTED IN: {this.props.info.time} SECONDS</h5>
     </div>
   );

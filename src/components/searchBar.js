@@ -1,4 +1,5 @@
 import React from 'react';
+import JsonResponse from '../containers/jsonResponse.js'
 
 class SearchBar extends React.Component {
 
@@ -36,11 +37,23 @@ class SearchBar extends React.Component {
      this.setState({
        search: data,
        query: {term: this.state.text, date: dateTime, time: data.searchInformation.searchTime}
-     }, () => this.postQueryData(this.state.query))
+     }, () => this.helperFunction(this.state))
   }).catch(function(){
         console.log("error");
     });
   }
+
+  helperFunction(){
+    this.postQueryData(this.state.query)
+    console.log("hi")
+  }
+  //have to use helperfunction, otherwise this.state data won't pass to two functions
+  //IE it wont pass to both postQueryData and passdata
+
+  // passData(){
+  //   console.log("hi")
+  //   return this.state.search
+  // }
 
   // componentDidUpdate(){
   //   if(this.state.query.time !== 0){
@@ -70,6 +83,7 @@ class SearchBar extends React.Component {
     <form onSubmit={this.executeSearch}>
     <input type='text' name='text' value={this.state.text} onChange={this.captureText}/>
     <button type="button" onClick={null}>cancel</button>
+    <JsonResponse info={this.state.search}/>
     </form>
     </div>
   );
