@@ -35,7 +35,7 @@ class QueryHistory extends React.Component {
   return (
     <div className="queryHistoryBox">
     <h1>Past 10 Queries</h1>
-    {(this.props.records.length !== 0) ? this.props.records.map(record => {return <Query info={record}/>}) : console.log("error")}}
+    {(this.props.records.length !== 0) ? this.props.records.reverse().map(record => {return <Query info={record}/>}) : console.log("error")}
     </div>
   );
 }
