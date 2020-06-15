@@ -41,7 +41,7 @@
   border-style: solid;
   border-color: black;
   height: 40em;
-  width: 30em;
+  width: 50em;
   margin-top: 2.5em;
   background-color: white;
   display: block;
@@ -53,12 +53,23 @@
   border-style: solid;
   border-width: thin;
   border-color: black;
-  width: 75%;
+  width: 90%;
   margin: 0 auto 0 auto;
   overflow: scroll;
   height: 12em;
+  margin-top: 15em;
 }
 
 .queryHistory {
   margin-top: 15em;
+}
+
+h5 {
+  margin: 0 auto 0 auto;
+  /* color: orange; */
+}
+
+.query {
+  text-align: left;
+  margin: 1em;
 }

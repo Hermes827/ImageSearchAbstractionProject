@@ -70,7 +70,6 @@ class SearchBar extends React.Component {
     <form onSubmit={this.executeSearch}>
     <input type='text' name='text' value={this.state.text} onChange={this.captureText}/>
     <button type="button" onClick={null}>cancel</button>
-    {console.log(this.state.query.time)}
     </form>
     </div>
   );

@@ -30,7 +30,6 @@ class App extends React.Component {
       <div className="mainDiv">
         <SearchBar/>
         <QueryHistory records={this.state.queryRecords}/>
-        {console.log(this.state.queryRecords)}
       </div>
     </div>
   );
