@@ -36,20 +36,22 @@ class SearchBar extends React.Component {
      this.setState({
        search: data,
        query: {term: this.state.text, date: dateTime, time: data.searchInformation.searchTime}
-     })
+     }, () => this.postQueryData(this.state.query))
   }).catch(function(){
         console.log("error");
     });
   }
 
-  componentDidUpdate(){
-    if(this.state.query.time !== 0){
-      this.postQueryData()
-    }
-  }
+  // componentDidUpdate(){
+  //   if(this.state.query.time !== 0){
+  //
+  //   }
+  // }
+//need a better solution than this, it works only once but then calls subsequently because
+//this.state.query.time ceases to be 0
 
   postQueryData(){
-
+    // if(this.state.query.time === 0){return}
   const requestOptions = {
        method: 'POST',
        headers: {'Content-Type': 'application/json'},
