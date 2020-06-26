@@ -1,3 +1,0 @@
-module.exports = function(app, db) {  app.get('/notes', (req, res) => {  res.send('Hello')  });};
-
-//in the walkthrough app.get was app.post and it didnt work until I changed it...
