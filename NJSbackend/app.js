@@ -4,9 +4,11 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = "mongodb+srv://chris:battery@cluster0-wtmz3.mongodb.net/chris?retryWrites=true&w=majority"
 const DATABASE_NAME = "accounting_department";
+const cors = require('cors');
 
 
 var app = Express();
+app.use(cors());
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 var database, collection;
