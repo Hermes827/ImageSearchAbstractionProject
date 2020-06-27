@@ -46,7 +46,6 @@ class SearchBar extends React.Component {
   helperFunction(){
     this.postQueryData(this.state.query)
     this.props.update()
-    console.log("hi")
   }
   //have to use helperfunction, otherwise this.state data won't pass to two functions
   //IE it wont pass to both postQueryData and passdata

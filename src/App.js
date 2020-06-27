@@ -20,7 +20,6 @@ class App extends React.Component {
     fetch("http://localhost:8000/stats")
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       this.setState({
         queryRecords: data.slice(-10)
       })
@@ -31,7 +30,6 @@ class App extends React.Component {
       fetch("http://localhost:8000/stats")
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         this.setState({
           queryRecords: data.slice(-10)
         })
