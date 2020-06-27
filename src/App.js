@@ -12,23 +12,37 @@ class App extends React.Component {
     this.state = {
       queryRecords: ""
     }
+
+    this.updateQueryHistory = this.updateQueryHistory.bind(this)
   }
 
   componentDidMount(){
-    fetch("http://localhost:3000/records")
+    fetch("http://localhost:8000/stats")
     .then(res => res.json())
     .then(data => {
+      console.log(data)
       this.setState({
         queryRecords: data.slice(-10)
       })
       })
     }
 
+    updateQueryHistory(){
+      fetch("http://localhost:8000/stats")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        this.setState({
+          queryRecords: data.slice(-10)
+        })
+        })
+    }
+
   render(){
   return (
     <div className="App">
       <div className="mainDiv">
-        <SearchBar/>
+        <SearchBar update={this.updateQueryHistory}/>
         <QueryHistory records={this.state.queryRecords}/>
       </div>
     </div>

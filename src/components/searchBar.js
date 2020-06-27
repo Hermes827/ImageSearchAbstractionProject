@@ -45,6 +45,7 @@ class SearchBar extends React.Component {
 
   helperFunction(){
     this.postQueryData(this.state.query)
+    this.props.update()
     console.log("hi")
   }
   //have to use helperfunction, otherwise this.state data won't pass to two functions
@@ -68,9 +69,9 @@ class SearchBar extends React.Component {
   const requestOptions = {
        method: 'POST',
        headers: {'Content-Type': 'application/json'},
-       body: JSON.stringify({record: {term: this.state.query.term, date: this.state.query.date, time: this.state.query.time}})
+       body: JSON.stringify({stats: {term: this.state.query.term, date: this.state.query.date, time: this.state.query.time}})
    };
-   fetch('http://localhost:3000/records', requestOptions)
+   fetch('http://localhost:8000/stats', requestOptions)
        .then(response => response.json())
        .then(data => console.log("success"));
      }
