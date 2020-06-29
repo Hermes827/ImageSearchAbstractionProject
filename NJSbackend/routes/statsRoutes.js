@@ -23,42 +23,15 @@ app.post('/stats', async (req, res) => {
   }
 });
 
-app.delete('/stats', async (req, res) => {
-  console.log("hi")
-const stats = await statsModel.find({});
-console.log(stats)
-  stats.remove({})
-  });
-     // .then(data => {
-     //   res.send({
-     //     message: `${data.deletedCount} Tutorials were deleted successfully!`
-     //   });
-     // })
-     // .catch(err => {
-     //   res.status(500).send({
-     //     message:
-     //       err.message || "Some error occurred while removing all tutorials."
-     //   });
-     // });
+  app.delete('/stats/:id', async (req, res) => {
+  try {
+    const stat = await statsModel.findByIdAndDelete(req.params.id)
 
-  //
-  // const stats = new statsModel(req.body);
-  // try {
-  //   await stats.save();
-  //   res.send(stats);
-  // } catch (err) {
-  //   res.status(500).send(err);
-  // }
-
-
-// postQueryData(){
-// const requestOptions = {
-//      method: 'DELETE',
-//      headers: {'Content-Type': 'application/json'}
-//  };
-//  fetch('http://localhost:8000/stats', requestOptions)
-//      .then(response => response.json())
-//      .then(data => console.log("success"));
-//    }
+    if (!stat) res.status(404).send("No item found")
+    res.status(200).send()
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
 
 module.exports = app

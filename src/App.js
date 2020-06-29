@@ -36,15 +36,13 @@ class App extends React.Component {
         })
     }
 
-    deleteQueryHistory(){
-      console.log("hello")
+    deleteQueryHistory(props){
       const requestOptions = {
            method: 'DELETE',
            headers: {'Content-Type': 'application/json'}
        };
-       fetch('http://localhost:8000/stats', requestOptions)
-           .then(response => response.json())
-           .then(data => console.log("success"));
+       fetch('http://localhost:8000/stats/' + props._id, requestOptions)
+           .then(console.log("success"));
     }
 
   render(){
@@ -53,6 +51,7 @@ class App extends React.Component {
       <div className="mainDiv">
         <SearchBar update={this.updateQueryHistory}/>
         <QueryHistory records={this.state.queryRecords} delete={this.deleteQueryHistory}/>
+        {console.log(this.state.queryRecords)}
       </div>
     </div>
   );

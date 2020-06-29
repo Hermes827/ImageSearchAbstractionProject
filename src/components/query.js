@@ -6,10 +6,13 @@ class Query extends React.Component {
     super()
   }
 
+
+
   render(){
   return (
     <div className="query">
-      <h5>SEARCH TERM: {"\"" + this.props.info.term + "\""} DATE: {this.props.info.date} EXECUTED IN: {this.props.info.time} SECONDS</h5>
+      <h5>SEARCH TERM: {"\"" + this.props.info.stats.term + "\""} DATE: {this.props.info.stats.date} EXECUTED IN: {this.props.info.stats.time} SECONDS</h5>
+      <button onClick={()=>this.props.delete(this.props.info)}>delete</button>
     </div>
   );
 }
