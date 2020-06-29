@@ -71,7 +71,17 @@ h5 {
 
 .query {
   text-align: left;
-  margin: 1em;
+  margin-left: 4em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0.5em;
+  border-color: black;
+  width: 37em;
+  height: 2em;
+  overflow-x: scroll;
 }
 
 .jsonResponse {
@@ -83,4 +93,18 @@ h5 {
   overflow: scroll;
   height: 13em;
   margin-top: 1.5em;
+}
+
+.queryStuff {
+  display:inline-block;
+  /* margin-right: 0; */
+}
+
+.queryStuff1 {
+  float: right;
+  margin-top: 2.5em;
+  position: relative;
+  left: -12em;
+  /* margin-right: 25em; */
+  /* left: 5em; */
 }

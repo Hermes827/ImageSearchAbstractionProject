@@ -9,32 +9,14 @@ class QueryHistory extends React.Component {
     this.state = {
       hasClickedButton: false
     }
-
-    // this.clickButton = this.clickButton.bind(this)
   }
-
-  // clickButton(){
-  //   this.setState({
-  //     hasClickedButton: true
-  //   })
-  // }
-
-  // renderQueries(){
-  //   if(this.state.hasClickedButton === false){
-  //     return(
-  //       <button onClick={this.clickButton}>Click Here</button>
-  //     )
-  //   } else {
-  //     return(
-  //       <div className="queryHistoryBox">what</div>
-  //     )
-  //   }
-  // }
 
   render(){
   return (
     <div className="queryHistoryBox">
-    <h1>Past 10 Queries</h1>
+    <div >
+    <h1 className="queryStuff">Past 10 Queries</h1><button className="queryStuff1" onClick={this.props.delete}>Delete query history</button>
+    </div>
     {(this.props.records.length !== 0) ? this.props.records.reverse().map(record => {return <Query info={record.stats}/>}) : console.log("error")}
     </div>
   );

@@ -64,7 +64,6 @@ class SearchBar extends React.Component {
 //this.state.query.time ceases to be 0
 
   postQueryData(){
-    // if(this.state.query.time === 0){return}
   const requestOptions = {
        method: 'POST',
        headers: {'Content-Type': 'application/json'},
